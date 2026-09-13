@@ -1,0 +1,1319 @@
+/* Fonts */
+:root {
+  --default-font: "Poppins", sans-serif;
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+}
+
+/* Global Colors */
+:root {
+  --background-color: #E3F2FD;
+  --default-color: #000000;
+  --heading-color: #0D47A1;
+
+  --accent-color: #2196F3;
+
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  /* Figma Color Palette */
+  --blue-dark: #0D47A1;
+  --blue: #2196F3;
+  --blue-light: #90CAF9;
+  --blue-pale: #E3F2FD;
+}
+
+/* Navigation Colors */
+:root {
+  --nav-color: #0D47A1;
+  --nav-hover-color: #2196F3;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #212529;
+  --nav-dropdown-hover-color: #90CAF9;
+}
+
+/* Color Presets */
+.light-background {
+  --background-color: #f9f9f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll & Mencegah Geser ke Samping */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden !important;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  color: var(--default-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 15px;
+  transition: all ease-in-out 0.3s;
+  overflow-y: auto;
+  z-index: 997;
+  min-width: 200px;
+}
+
+@media (max-width: 1199px) {
+  .header {
+    background-color: var(--background-color);
+    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    width: 300px;
+    left: -100%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .header~main {
+    margin-left: 160px;
+  }
+
+  .header~main .hero {
+    margin-left: -160px;
+    width: 100vw;
+  }
+}
+
+.header.header-show {
+  left: 0;
+}
+
+.header .header-toggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.header .header-toggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.navmenu {
+  padding: 0;
+  z-index: 9997;
+}
+
+.navmenu ul {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+  width: 140px;
+}
+
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-color);
+  font-family: var(--nav-font);
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  border-radius: 50px;
+  background: color-mix(in srgb, var(--default-color), transparent 92%);
+  height: 56px;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.navmenu a i,
+.navmenu a:focus i {
+  font-size: 20px;
+}
+
+.navmenu a span,
+.navmenu a:focus span {
+  padding: 0 5px 0 7px;
+}
+
+@media (min-width: 992px) {
+
+  .navmenu a,
+  .navmenu a:focus {
+    max-width: 56px;
+  }
+
+  .navmenu a span,
+  .navmenu a:focus span {
+    display: none;
+  }
+}
+
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus,
+.navmenu li:hover>a {
+  color: var(--contrast-color);
+  background: var(--nav-hover-color);
+}
+
+.navmenu a:hover,
+.navmenu li:hover>a {
+  max-width: 100%;
+  color: var(--contrast-color);
+}
+
+.navmenu a:hover span,
+.navmenu li:hover>a span {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+.footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  position: relative;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.footer p {
+  font-size: 15;
+  font-style: italic;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.footer .social-links {
+  margin: 0 0 30px 0;
+}
+
+.footer .social-links a {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  line-height: 1;
+  margin: 0 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+.footer .social-links a:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  text-decoration: none;
+}
+
+.footer .copyright {
+  padding-top: 25px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .credits {
+  font-size: 13px;
+  padding-top: 5px;
+}
+
+.image-container {
+  width: 100px;
+  /* Lebar kontainer */
+  height: 600px;
+  /* Tinggi kontainer */
+  overflow: hidden;
+  /* Potong bagian gambar yang melebihi kontainer */
+  position: relative;
+  /* Memastikan posisi relatif */
+  border: 2px solid #ccc;
+  /* Opsional: border untuk melihat batas */
+}
+
+/* Styling gambar */
+.image-container img {
+  width: 50%;
+  /* Sesuaikan gambar agar lebarnya sesuai kontainer */
+  height: 50%;
+  /* Tinggi gambar sesuai kontainer */
+  object-fit: cover;
+  /* Potong gambar agar memenuhi kontainer */
+  object-position: center;
+  /* Pusatkan gambar */
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+  --background-color: color-mix(in srgb, var(--default-color), transparent 96%);
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 20px 0;
+  position: relative;
+}
+
+.page-title h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  overflow: clip;
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--heading-color);
+  margin-bottom: 10px;
+  padding-bottom: 0;
+  position: relative;
+}
+
+
+/* Hero Section (Desain Split-Screen Baru)*/
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 0; /* Menghapus padding bawaan agar full-screen */
+  background-color: var(--background-color);
+}
+
+.hero-container {
+  min-height: 100vh;
+}
+
+/* Sisi Kiri (Putih) */
+.hero-left {
+  background-color: #ffffff;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left img.hero-img {
+  max-height: 90vh; /* Agar gambar tidak terpotong header/footer */
+  width: auto;
+  position: relative;
+  z-index: 3;
+  object-fit: contain;
+}
+
+/* Sisi Kanan (Biru Muda) */
+.hero-right {
+  background-color: var(--blue-pale); /* Mengambil warna biru muda dari variabelmu */
+  width: 50%;
+  padding: 8%; /* Memberikan ruang napas yang lega */
+  position: relative;
+  z-index: 3;
+}
+
+/* Lingkaran Dekorasi */
+.hero-circles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.hero-circles .circle {
+  display: block;
+  width: clamp(24px, 2.5vw, 40px);
+  height: clamp(24px, 2.5vw, 40px);
+  border-radius: 50%;
+}
+
+.circle-dark { background-color: var(--blue-dark); }
+.circle-medium { background-color: var(--blue-light); } /* Disesuaikan agar mirip gambar */
+.circle-light { background-color: color-mix(in srgb, var(--blue-pale) 80%, white); }
+
+/* Tipografi Sisi Kanan */
+.hero-name {
+  font-size: clamp(40px, 4.5vw, 72px); /* Teks akan mengecil otomatis di layar kecil */
+  font-weight: 800;
+  color: var(--blue-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.hero-contact {
+  padding-bottom: 20px;
+}
+
+.hero-contact p {
+  color: var(--accent-color);
+  font-size: 16px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+/*--------------------------------------------------------------
+# Responsif Mobile untuk Hero
+--------------------------------------------------------------*/
+@media (max-width: 991px) {
+  .hero-container {
+    flex-direction: column !important; /* Susun atas-bawah di layar HP */
+  }
+  
+  .hero-left, .hero-right {
+    width: 100%;
+  }
+
+  .hero-left {
+    height: 50vh; /* Foto mengambil setengah layar atas */
+  }
+
+  .hero-left img.hero-img {
+    max-height: 100%;
+  }
+
+  .hero-right {
+    height: 50vh; /* Konten mengambil setengah layar bawah */
+    padding: 40px 30px;
+    justify-content: center;
+  }
+  
+  .hero-contact {
+    margin-top: 40px;
+  }
+}
+
+/*--------------------------------------------------------------
+# About Section (Full Height & Split Full-Width Background)
+--------------------------------------------------------------*/
+.about {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  width: 125vw !important; /* Diperlebar agar area kiri dan kanan lebih luas */
+  position: relative !important;
+  left: 45% !important;   /* Digeser ke kiri untuk menutupi celah dekat navbar */
+  transform: translateX(-50%) !important;
+}
+
+.about-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Sisi Kiri (Setengah warna #90CAF9) */
+.about-left {
+  background-color: #90CAF9 !important;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bingkai Putih */
+.about-left .photo-frame {
+  width: 380px;
+  height: 520px;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 200px; /* Menambahkan jarak agar bingkai foto bergeser ke kanan */
+}
+
+.about-left .carousel,
+.about-left .carousel-inner,
+.about-left .carousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+.about-left .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+/* Sisi Kanan (Setengah warna #E3F2FD) */
+.about-right {
+  background-color: var(--blue-pale) !important;
+  width: 50%;
+  color: var(--default-color);
+  padding: 60px 60px 60px 40px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-right .about-content {
+  max-width: 620px;
+  margin-left: 0;
+}
+
+.about-right .about-title {
+  font-size: clamp(36px, 4vw, 54px);
+  color: var(--blue-dark);
+}
+
+.about-right p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color) 85%, transparent);
+}
+
+/* Responsif HP */
+@media (max-width: 991px) {
+  .about {
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  .about-container {
+    flex-direction: column !important;
+  }
+  
+  .about-left, .about-right {
+    width: 100%;
+    min-height: auto;
+    padding: 50px 20px !important;
+  }
+
+  .about-left .photo-frame {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+.about-left .carousel,
+.about-left .carousel-inner,
+.about-left .carousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+.about-left .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
+/* Sisi Kanan (Setengah warna #E3F2FD) - Teks Digeser ke Kiri */
+.about-right {
+  background-color: var(--blue-pale) !important;
+  width: 50%;
+  color: var(--default-color);
+  padding: 60px 60px 60px 40px !important; /* Padding kiri diperkecil agar teks bergeser ke kiri */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-right .about-content {
+  max-width: 620px; /* Membatasi lebar konten agar teks lebih rapi */
+  margin-left: 0;
+}
+
+.about-right .about-title {
+  font-size: clamp(36px, 4vw, 54px);
+  color: var(--blue-dark);
+}
+
+.about-right p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color) 85%, transparent);
+}
+
+/* Responsif HP */
+@media (max-width: 991px) {
+  .about {
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  .about-container {
+    flex-direction: column !important;
+  }
+  
+  .about-left, .about-right {
+    width: 100%;
+    min-height: auto;
+    padding: 50px 20px !important;
+  }
+
+  .about-left .photo-frame {
+    width: 300px;
+    height: 400px;
+  }
+}
+/*--------------------------------------------------------------
+# Video Section (Desain Blok Warna & Vertikal)
+--------------------------------------------------------------*/
+.video-section {
+  background-color: var(--blue-pale);
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0 60px 0 !important; /* Mengganti min-height 100vh agar jarak atas bisa diatur */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100% !important;
+}
+
+.video-section .container {
+  position: relative;
+  z-index: 2;
+  margin-top: 0 !important;
+}
+
+.video-section .video-title {
+  font-size: clamp(40px, 4.5vw, 64px);
+  color: var(--heading-color);
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-top: 0 !important;
+}
+
+/* Bingkai Putih Video Landscape di Bawah Teks */
+.video-section .video-frame {
+  width: 100%;
+  max-width: 640px; /* Lebar maksimal untuk landscape */
+  height: 360px;    /* Tinggi proporsional rasio 16:9 */
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 0 auto !important; /* Mengatur jarak pas antara judul dan video */
+}
+
+.video-section video,
+.video-section iframe {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+}
+
+/* Responsif Landscape untuk Layar HP */
+@media (max-width: 991px) {
+  .video-section {
+    padding: 30px 0 40px 0 !important;
+  }
+
+  .video-section .video-frame {
+    width: 100%;
+    max-width: 320px; /* Mengecil secara responsif di HP */
+    height: 180px;    /* Tinggi proporsional di HP */
+  }
+}
+
+/*--------------------------------------------------------------
+# Edu Section Styling
+--------------------------------------------------------------*/
+.edu-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.edu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+.edu-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.edu-item-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+
+.edu-item-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--default-color) 80%, transparent);
+  margin-bottom: 0;
+}
+/*--------------------------------------------------------------
+# Perbaikan Mutlak Posisi Tengah GLightbox (Flexbox Override)
+--------------------------------------------------------------*/
+.glightbox-container .gslide-slide {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+.glightbox-container .gslide-media {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+}
+
+.glightbox-container .gslide-inline {
+  max-width: 680px !important;
+  width: 90% !important;
+  max-height: 88vh !important;
+  overflow-y: auto !important;
+  background: transparent !important;
+  margin: auto !important;
+}
+
+/* Styling kotak putih di dalam pop-up */
+.glightbox-container .gslide-inline > div {
+  width: 100% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.glightbox-container .gslide-inline .p-4 {
+  background: #ffffff !important;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  padding: 35px !important;
+  margin: 0 auto !important;
+}
+
+/*--------------------------------------------------------------
+# Typography & Section Heading Styles (Headings 30px, Paragraphs 15px)
+--------------------------------------------------------------*/
+
+/* Uniform Paragraph Text Size */
+.research-text-content p,
+.research-quote p,
+.education-text-content p,
+.ux-text-content p,
+.ux-subtitle,
+.tech-text-content p,
+.org-text-content p,
+.org-quote p {
+  font-size: 15px !important;
+}
+
+/* Section Headings (H3 set to 30px) */
+.research-heading,
+.education-title,
+.ux-title,
+.tech-title,
+.org-title {
+  font-size: 30px !important;
+  color: var(--heading-color) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px;
+}
+
+/* Specific Section Layout Tweaks */
+.research {
+  background-color: var(--blue-pale);
+  padding: 20px 0 !important;
+}
+
+.research .container {
+  width: 100%;
+}
+
+.research div.section-title {
+  margin-bottom: 5px !important;
+  padding-bottom: 0 !important;
+}
+
+.research div.section-title h2 {
+  margin-bottom: 0px !important;
+  padding-bottom: 0 !important;
+}
+
+.research .paper-card img,
+.education .paper-card img,
+.ux-section .paper-card img,
+.org-visuals-left .paper-card img,
+.org-visuals-right .paper-card img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.education {
+  background-color: var(--blue-pale);
+  padding: 40px 0 !important;
+}
+
+.ux-section {
+  background-color: var(--blue-pale);
+  padding: 40px 0 !important;
+}
+
+.technology {
+  background-color: var(--blue-pale);
+  padding: 40px 0 !important;
+}
+
+.tech-card-box {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.tech-image-wrapper img {
+  max-height: 450px;
+  object-fit: contain;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.org-section {
+  background-color: var(--blue-pale);
+  padding: 40px 0 !important;
+}
+
+.org-visuals-left .paper-card img {
+  max-height: 330px; 
+}
+
+.org-visuals-right .paper-card img {
+  max-height: 210px; 
+}
+
+/*--------------------------------------------------------------
+# Experience Section Full-Width Background Styling
+--------------------------------------------------------------*/
+.experience-section {
+  background-color: #90CAF9 !important;
+  padding: 40px 80px !important;
+  width: 125vw !important; /* Lebar diperbesar agar bagian kanan tetap penuh hingga ujung layar */
+  position: relative !important;
+  left: 45% !important;   /* Menjaga posisi agar tetap bergeser ke kiri menutupi celah */
+  transform: translateX(-50%) !important;
+}
+
+.experience-section .container {
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.experience-title {
+  font-size: clamp(32px, 4vw, 46px) !important;
+  color: var(--heading-color) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px;
+}
+
+.experience-section .paper-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.experience-section .paper-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.experience-section .paper-card img {
+  max-height: 290px;
+  object-fit: cover;
+  width: 100%;
+}
+/*--------------------------------------------------------------
+# Industrial Practice Section Full-Width Background Styling
+--------------------------------------------------------------*/
+.practice-section {
+  background-color: #90CAF9 !important;
+  padding: 40px 80px !important;
+  width: 125vw !important; /* Lebar diperbesar agar bagian kanan tetap penuh hingga ujung layar */
+  position: relative !important;
+  left: 45% !important;   /* Menjaga posisi agar tetap bergeser ke kiri menutupi celah */
+  transform: translateX(-50%) !important;
+}
+
+.practice-section .container {
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.practice-section .paper-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.practice-section .paper-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.practice-section .paper-card img {
+  max-height: 290px;
+  object-fit: cover;
+  width: 100%;
+}
+/*--------------------------------------------------------------
+# Digides Section Full-Width Background Styling
+--------------------------------------------------------------*/
+.digides-section {
+  background-color: #90CAF9 !important;
+  padding: 40px 80px !important;
+  width: 125vw !important; /* Lebar diperbesar agar bagian kanan tetap penuh hingga ujung layar */
+  position: relative !important;
+  left: 45% !important;   /* Menjaga posisi agar tetap bergeser ke kiri menutupi celah */
+  transform: translateX(-50%) !important;
+}
+
+.digides-section .container {
+  max-width: 1200px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.digides-section .paper-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.digides-section .paper-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.digides-section .paper-card img {
+  max-height: 290px;
+  object-fit: cover;
+  width: 100%;
+}
+/*--------------------------------------------------------------
+# Penyesuaian Pop-up GLightbox yang Lebih Besar & Proporsional
+--------------------------------------------------------------*/
+.glightbox-container .gslide-inline {
+  max-width: 680px !important; /* Diperbesar dari 580px agar pop-up lebih luas */
+  width: 92% !important;
+  margin: auto !important;
+  background: transparent !important;
+  max-height: 88vh;
+  overflow-y: auto;
+  border-radius: 12px;
+}
+
+/* Memastikan kontainer utama pop-up bersih dari duplikasi padding */
+.glightbox-container .gslide-inline > div {
+  width: 100% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Styling untuk kotak putih di dalam pop-up */
+.glightbox-container .gslide-inline .p-4 {
+  background: #ffffff !important;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  padding: 35px !important;
+  margin: 10px;
+}
+
+.glightbox-container .gslide-inline h3 {
+  font-size: 22px !important;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.glightbox-container .gslide-inline p,
+.glightbox-container .gslide-inline li {
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+  color: color-mix(in srgb, var(--default-color) 85%, transparent);
+  margin-bottom: 15px;
+}
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+.portfolio .portfolio-filters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio .portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 20px 10px 20px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 5px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--heading-font);
+}
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+}
+
+.portfolio .portfolio-filters li:first-child {
+  margin-left: 0;
+}
+
+.portfolio .portfolio-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .portfolio .portfolio-filters li {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+}
+
+.portfolio .portfolio-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio .portfolio-item .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -100%;
+  z-index: 3;
+  transition: all ease-in-out 0.5s;
+  background: color-mix(in srgb, var(--background-color), transparent 10%);
+  padding: 15px;
+}
+
+.portfolio .portfolio-item .portfolio-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 50px;
+}
+
+.portfolio .portfolio-item .portfolio-info p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-right: 50px;
+}
+
+.portfolio .portfolio-item .portfolio-info .preview-link,
+.portfolio .portfolio-item .portfolio-info .details-link {
+  position: absolute;
+  right: 50px;
+  font-size: 24px;
+  top: calc(50% - 14px);
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  transition: 0.3s;
+  line-height: 0;
+}
+
+.portfolio .portfolio-item .portfolio-info .preview-link:hover,
+.portfolio .portfolio-item .portfolio-info .details-link:hover {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-item .portfolio-info .details-link {
+  right: 14px;
+  font-size: 28px;
+}
+
+.portfolio .portfolio-item:hover .portfolio-info {
+  opacity: 1;
+  bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact .info-item+.info-item {
+  margin-top: 40px;
+}
+
+.contact .info-item i {
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  margin-right: 15px;
+}
+
+.contact .info-item h3 {
+  padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.contact .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.contact .info-item:hover i {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.contact .php-email-form {
+  height: 100%;
+}
+
+.contact .php-email-form input[type="text"],
+.contact .php-email-form input[type="email"],
+.contact .php-email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--default-color);
+  background-color: color-mix(in srgb,
+      var(--background-color),
+      transparent 50%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.contact .php-email-form input[type="text"]:focus,
+.contact .php-email-form input[type="email"]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .php-email-form input[type="text"]::placeholder,
+.contact .php-email-form input[type="email"]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .php-email-form button[type="submit"] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
