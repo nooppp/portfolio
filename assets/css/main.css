@@ -648,12 +648,15 @@ section,
   color: color-mix(in srgb, var(--default-color) 85%, transparent);
 }
 
-/* Responsif HP */
+/*--------------------------------------------------------------
+# Responsif HP untuk About Section
+--------------------------------------------------------------*/
 @media (max-width: 991px) {
   .about {
     width: 100% !important;
     left: 0 !important;
     transform: none !important;
+    margin: 0 !important;
   }
 
   .about-container {
@@ -661,79 +664,27 @@ section,
   }
   
   .about-left, .about-right {
-    width: 100%;
-    min-height: auto;
-    padding: 50px 20px !important;
-  }
-
-  .about-left .photo-frame {
-    width: 300px;
-    height: 400px;
-  }
-}
-
-.about-left .carousel,
-.about-left .carousel-inner,
-.about-left .carousel-item {
-  width: 100%;
-  height: 100%;
-}
-
-.about-left .carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background-color: #ffffff;
-}
-
-/* Sisi Kanan (Setengah warna #E3F2FD) - Teks Digeser ke Kiri */
-.about-right {
-  background-color: var(--blue-pale) !important;
-  width: 50%;
-  color: var(--default-color);
-  padding: 60px 60px 60px 40px !important; /* Padding kiri diperkecil agar teks bergeser ke kiri */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.about-right .about-content {
-  max-width: 620px; /* Membatasi lebar konten agar teks lebih rapi */
-  margin-left: 0;
-}
-
-.about-right .about-title {
-  font-size: clamp(36px, 4vw, 54px);
-  color: var(--blue-dark);
-}
-
-.about-right p {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color) 85%, transparent);
-}
-
-/* Responsif HP */
-@media (max-width: 991px) {
-  .about {
     width: 100% !important;
-    left: 0 !important;
-    transform: none !important;
+    min-height: auto !important;
+    padding: 40px 20px !important;
   }
 
-  .about-container {
-    flex-direction: column !important;
-  }
-  
-  .about-left, .about-right {
-    width: 100%;
-    min-height: auto;
-    padding: 50px 20px !important;
+  .about-left {
+    background-color: #90CAF9 !important;
   }
 
   .about-left .photo-frame {
-    width: 300px;
-    height: 400px;
+    width: 100% !important;
+    max-width: 300px !important;
+    height: 400px !important;
+    margin-left: 0 !important; /* Menghilangkan geseran 200px penyebab foto lari ke kanan */
+    margin-right: auto;
+    margin-left: auto; /* Memposisikan foto tepat di tengah */
+  }
+
+  .about-right {
+    background-color: var(--blue-pale) !important;
+    padding: 40px 20px !important;
   }
 }
 /*--------------------------------------------------------------
@@ -864,14 +815,14 @@ section,
   width: 100% !important;
   max-width: 680px !important;
   height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
+  max-height: 85vh !important; /* Membatasi tinggi maksimum pop-up agar pas di layar HP */
+  overflow-y: auto !important; /* Mengaktifkan fitur scroll vertikal di dalam pop-up */
   background: #ffffff !important;
   border-radius: 12px !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
   padding: 35px !important;
   box-sizing: border-box !important;
-  margin: 0 !important;
+  margin: auto !important; /* Posisikan pop-up di tengah layar */
 }
 
 /* Matikan footer/caption luar GLightbox yang sering memperlebar kontainer */
@@ -934,6 +885,11 @@ section,
 .research {
   background-color: var(--blue-pale);
   padding: 20px 0 !important;
+}
+/* Menyamakan margin teks Research agar tidak terlalu dempet ke pinggir layar */
+.research-text-content {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 
 .research .container {
@@ -1346,4 +1302,13 @@ img[loading="lazy"] {
   aspect-ratio: attr(width) / attr(height); /* atau tentukan manual misal 4 / 3 */
   width: 100%;
   height: auto;
+}
+/* Menyamakan lebar dan jarak kontainer Experience agar selaras dengan Education */
+.experience-content, 
+.resume-item,
+.experience .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
