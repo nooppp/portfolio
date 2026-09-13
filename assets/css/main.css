@@ -1342,3 +1342,8 @@ section,
 .contact .php-email-form button[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
+img[loading="lazy"] {
+  aspect-ratio: attr(width) / attr(height); /* atau tentukan manual misal 4 / 3 */
+  width: 100%;
+  height: auto;
+}
