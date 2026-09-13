@@ -1312,3 +1312,24 @@ img[loading="lazy"] {
   padding-left: 20px !important;
   padding-right: 20px !important;
 }
+@media (max-width: 991px) {
+  .glightbox-container .gslide-inline {
+    max-height: 75vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .glightbox-container .gslide-inner-content {
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+@media (max-width: 991px) {
+  .research .container,
+  .experience .container,
+  .research-text-content,
+  .experience-content {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
