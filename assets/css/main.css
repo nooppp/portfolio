@@ -839,47 +839,67 @@ section,
   margin-bottom: 0;
 }
 /*--------------------------------------------------------------
-# Perbaikan Mutlak Posisi Tengah GLightbox (Flexbox Override)
+/*--------------------------------------------------------------
+# Override Mutlak GLightbox Inline, Footer Fix, & Tanpa Scroll
 --------------------------------------------------------------*/
 .glightbox-container .gslide-slide {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 0 !important;
+  padding: 16px !important;
+  overflow: visible !important;
 }
 
 .glightbox-container .gslide-media {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
+  width: min(680px, 92vw) !important;
+  max-width: 680px !important;
+  height: auto !important;
+  max-height: none !important;
+  margin: auto !important;
+  background: transparent !important;
+  overflow: visible !important;
 }
 
 .glightbox-container .gslide-inline {
+  width: 100% !important;
   max-width: 680px !important;
-  width: 90% !important;
-  max-height: 88vh !important;
-  overflow-y: auto !important;
-  background: transparent !important;
-  margin: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+  padding: 35px !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
 }
 
-/* Styling kotak putih di dalam pop-up */
-.glightbox-container .gslide-inline > div {
+/* Matikan footer/caption luar GLightbox yang sering memperlebar kontainer */
+.glightbox-container .gslide-footer,
+.glightbox-container .gslide-title,
+.glightbox-container .gslide-desc {
+  display: none !important;
+}
+
+.glightbox-container .gslide-inline > div,
+.glightbox-container .gslide-inline .p-4 {
   width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
-.glightbox-container .gslide-inline .p-4 {
-  background: #ffffff !important;
-  border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  padding: 35px !important;
-  margin: 0 auto !important;
+.glightbox-container .gslide-inline p,
+.glightbox-container .gslide-inline h3,
+.glightbox-container .gslide-inline div {
+  box-sizing: border-box !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /*--------------------------------------------------------------
@@ -932,7 +952,6 @@ section,
 
 .research .paper-card img,
 .education .paper-card img,
-.ux-section .paper-card img,
 .org-visuals-left .paper-card img,
 .org-visuals-right .paper-card img {
   object-fit: cover;
@@ -947,6 +966,12 @@ section,
 .ux-section {
   background-color: var(--blue-pale);
   padding: 40px 0 !important;
+}
+
+.ux-section .paper-card img {
+  height: 400px !important;
+  object-fit: cover !important;
+  width: 100% !important;
 }
 
 .technology {
